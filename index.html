@@ -44,14 +44,20 @@ ar    <style>
             top: 0;
             width: 100%;
             background: #4a154b;
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        
+        .navbar.active{
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .navbar.active .logo{
+            margin-bottom: 2rem;
+        }
         .logo {
             display: inline-block;
             width: 80px; /* Adjust the logo width as needed */
@@ -80,6 +86,7 @@ ar    <style>
             border-radius: 0.5rem;
             background: transparent;
             transition: background 0.1s ease-in-out;
+            text-align: center;
         }
 
         .nav-links a:hover {
@@ -90,8 +97,9 @@ ar    <style>
         .menu-btn {
             display: none;
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
+            
         }
 
         /* Hero Section */
@@ -102,6 +110,7 @@ ar    <style>
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
             text-align: center;
             color: var(--text-light);
         }
@@ -594,7 +603,12 @@ ar    <style>
                 display: block;
                 cursor: pointer;
                 color:#fff;
-                z-index: 10000;
+                z-index: 20000;
+            }
+    
+            .navbar{
+                width: 100%;
+                overflow: hidden;
             }
             .nav-links{
                 display: none;
@@ -649,7 +663,7 @@ ar    <style>
             <!-- <a href="#pricing-section">Pricing</a> -->
             <a href="#contact-section">Contact</a>
         </div>
-        <div class="menu-btn">☰</div>
+        <div class="menu-btn"><i class="bx bx-menu"></i></div>
     </nav>
 
     <!-- Hero Section -->
@@ -886,9 +900,11 @@ ar    <style>
         // Mobile menu toggle
         const menuBtn = document.querySelector('.menu-btn');
         const navLinks = document.querySelector('.nav-links');
+        const navbar = document.querySelector('.navbar');
 
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            navbar.classList.toggle('active');
         });
 
         // Smooth scrolling for navigation links
